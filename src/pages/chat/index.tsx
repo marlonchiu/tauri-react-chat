@@ -1,7 +1,12 @@
+import MessageList from '@/components/MessageList'
+import UserInput from '@/components/UserInput'
+import style from './index.module.css'
+
 function Chat() {
   return (
-    <div className="chat">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    <div className={style.chat}>
+      <MessageList />
+      <UserInput />
     </div>
   )
 }

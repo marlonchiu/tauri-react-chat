@@ -1,3 +1,12 @@
+import { Role } from '../constants/enum'
+
+export interface IMessage {
+  id: string
+  role: Role
+  content: string
+  isError?: boolean
+}
+
 export interface UserConfig {
   openAi: {
     key: string
