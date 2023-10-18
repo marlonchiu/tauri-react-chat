@@ -1,0 +1,8 @@
+.more {
+  @apply w-full flex-auto py-8;
+}
+
+.more .form {
+  width: clamp(300px, 80%, 440px);
+  @apply mx-auto;
+}
