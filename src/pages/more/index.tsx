@@ -1,5 +1,8 @@
 import { OPEN_AI_CHAT_MODELS } from '@/constants'
 import { UserConfig } from '@/types'
+import { getUserConfig, setUserConfig } from '@/utils/user-config'
+import { dialog } from '@tauri-apps/api'
+import { useMount } from 'ahooks'
 import { Button, Form, Input, InputNumber, Select, Slider } from 'antd'
 import { useNavigate } from 'react-router-dom'
 import style from './index.module.css'
@@ -8,7 +11,15 @@ export default function More() {
   const navigate = useNavigate()
   const [form] = Form.useForm<UserConfig>()
 
+  useMount(async () => {
+    const config = await getUserConfig()
+    form.setFieldsValue(config)
+  })
+
   async function save() {
+    const value = form.getFieldsValue()
+    await setUserConfig(value)
+    await dialog.message('✅ 配置已保存', { title: '' })
     navigate('/')
   }
 

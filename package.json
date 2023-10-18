@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "tauri": "tauri"
+    "tauri": "tauri dev",
+    "build": "tauri build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.17.2",
